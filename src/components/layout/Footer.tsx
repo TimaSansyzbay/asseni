@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <footer className="bg-slate-900 text-slate-300">
       <div className="container mx-auto max-w-6xl px-4 py-12">
-        <div className="grid md:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-3 gap-8">
           {/* Company Info */}
           <div className="space-y-4">
             <div className="flex items-center gap-2 font-bold text-xl text-white">
@@ -17,7 +17,7 @@ export default function Footer() {
               <span>Asseni</span>
             </div>
             <p className="text-sm">
-              Профессиональное строительство и ремонт любой сложности с 2014 года.
+              Профессиональное строительство и ремонт любой сложности с 1994 года.
             </p>
           </div>
 
@@ -40,19 +40,6 @@ export default function Footer() {
                   Контакты
                 </Link>
               </li>
-            </ul>
-          </div>
-
-          {/* Services */}
-          <div>
-            <h3 className="font-semibold text-white mb-4">Услуги</h3>
-            <ul className="space-y-2 text-sm">
-              <li>Строительство домов</li>
-              <li>Ремонт квартир</li>
-              <li>Коммерческие объекты</li>
-              <li>Фасадные работы</li>
-              <li>Кровельные работы</li>
-              <li>Дизайн интерьера</li>
             </ul>
           </div>
 
