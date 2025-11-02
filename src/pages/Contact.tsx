@@ -3,7 +3,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Phone, Mail, MapPin, Clock, Send } from "lucide-react";
 import { useState } from "react";
 
@@ -29,7 +28,6 @@ export default function Contact() {
       name: formData.name,
       phone: formData.phone,
       email: formData.email,
-      serviceType: formData.serviceType,
       message: formData.message,
     };
     try {
@@ -52,10 +50,6 @@ export default function Contact() {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSelectChange = (value: string) => {
-    setFormData({ ...formData, serviceType: value });
   };
 
   return (
@@ -191,25 +185,6 @@ export default function Contact() {
                       placeholder="example@mail.com"
                     />
                   </div>
-
-                  <div>
-                    <Label htmlFor="serviceType">Интересующая услуга</Label>
-                    <Select value={formData.serviceType} onValueChange={handleSelectChange}>
-                      <SelectTrigger>
-                        <SelectValue placeholder="Выберите услугу" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="construction">Строительство и реконструкция</SelectItem>
-                        <SelectItem value="electrical">Электромонтаж и связь</SelectItem>
-                        <SelectItem value="automation">Автоматизация и системы учёта</SelectItem>
-                        <SelectItem value="production">Производство металлоконструкций</SelectItem>
-                        <SelectItem value="infrastructure">Инновационные и инфраструктурные решения</SelectItem>
-                        <SelectItem value="sales">Продажи и поставки</SelectItem>
-                        <SelectItem value="other">Другое</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-
                   <div>
                     <Label htmlFor="message">Сообщение *</Label>
                     <Textarea
