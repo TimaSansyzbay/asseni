@@ -124,7 +124,7 @@
     "cards": {
       "phone": { "title": "Phone", "hours": "Call from 9:00 to 18:00" },
       "email": { "response": "We will reply within 24 hours" },
-      "address": { "title": "Address", "city": "Karaganda", "street": "Prigorodnaya St 1b" },
+      "address": { "title": "Address", "city": "Astana", "street": "Turan pr. 19/1, VP-9, office №7" },
       "hours": { "title": "Working hours", "weekdays": "Mon–Fri: 9:00 – 18:00", "weekend": "Sat–Sun: closed" }
     },
     "form": {

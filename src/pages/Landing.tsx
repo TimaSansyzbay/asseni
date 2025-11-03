@@ -300,7 +300,8 @@ export default function Landing() {
                   <MapPin className="w-5 h-5 text-orange-600 mt-1" />
                   <div>
                     <div className="font-semibold">{t("landing.contact.info.address")}</div>
-                    <div className="text-slate-600">г. Караганда, ул. Пригородная, д. 1б</div>
+                    <div className="text-slate-600">{t("contactPage.cards.address.city")}</div>
+                    <div className="text-slate-600">{t("contactPage.cards.address.street")}</div>
                   </div>
                 </div>
               </CardContent>
