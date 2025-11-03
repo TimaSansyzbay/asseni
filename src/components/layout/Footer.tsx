@@ -68,7 +68,8 @@ export default function Footer() {
               </li>
               <li className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-orange-500 mt-0.5 flex-shrink-0" />
-                <span>г. Караганда, ул. Пригородная, д. 1б</span>
+                <span>{t("contactPage.cards.address.city")},</span>
+                <span>{t("contactPage.cards.address.street")}</span>
               </li>
             </ul>
           </div>
