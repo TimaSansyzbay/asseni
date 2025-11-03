@@ -6,9 +6,11 @@ import { Textarea } from "@/components/ui/textarea";
 import { Building2, CheckCircle2, Users, Award, Phone, Mail, MapPin } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export default function Landing() {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -20,12 +22,12 @@ export default function Landing() {
     e.preventDefault();
     const access_key = import.meta.env.VITE_WEB3FORMS_KEY as string;
     if (!access_key) {
-      alert("Не настроен ключ Web3Forms (VITE_WEB3FORMS_KEY)");
+      alert(t("landing.form.web3forms_key_missing"));
       return;
     }
     const payload = {
       access_key,
-      subject: "Новая заявка: Главная страница",
+      subject: t("landing.form.subject"),
       name: formData.name,
       phone: formData.phone,
       email: formData.email,
@@ -39,13 +41,13 @@ export default function Landing() {
       });
       const data = await res.json();
       if (data && data.success) {
-        alert("Спасибо! Ваша заявка отправлена.");
+        alert(t("landing.form.success"));
         setFormData({ name: "", phone: "", email: "", message: "" });
       } else {
-        alert("Ошибка отправки. Попробуйте позже.");
+        alert(t("landing.form.error"));
       }
     } catch (_) {
-      alert("Ошибка сети. Попробуйте позже.");
+      alert(t("landing.form.network_error"));
     }
   };
 
@@ -78,10 +80,10 @@ export default function Landing() {
         <div className="container mx-auto max-w-6xl relative z-10">
           <div className="text-center space-y-6">
             <h1 className="text-5xl md:text-7xl font-bold tracking-tight reveal-on-scroll">
-              Строительная компания <span className="text-orange-500">Asseni</span>
+              {t("landing.hero.title_1")} <span className="text-orange-500">{t("brand.name")}</span>
             </h1>
             <p className="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto reveal-on-scroll reveal-delay-1">
-              Профессиональное строительство и ремонт любой сложности. Качество, надежность и индивидуальный подход к каждому проекту.
+              {t("landing.hero.subtitle")}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6 reveal-on-scroll reveal-delay-2">
               <Button 
@@ -89,7 +91,7 @@ export default function Landing() {
                 className="bg-orange-600 hover:bg-orange-700 text-lg px-8 py-6"
                 onClick={() => navigate("/contact")}
               >
-                Получить консультацию
+                {t("landing.hero.cta_consult")}
               </Button>
               <Button 
                 size="lg" 
@@ -97,7 +99,7 @@ export default function Landing() {
                 className="text-lg px-8 py-6 border-white text-black hover:bg-slate-900 hover:text-white"
                 onClick={() => navigate("/works")}
               >
-                Наши проекты
+                {t("landing.hero.cta_projects")}
               </Button>
             </div>
           </div>
@@ -107,19 +109,17 @@ export default function Landing() {
       {/* Features Section */}
       <section className="py-20 px-4 bg-slate-50">
         <div className="container mx-auto max-w-6xl">
-          <h2 className="text-4xl font-bold text-center mb-12 text-slate-900 reveal-on-scroll">Почему выбирают нас</h2>
+          <h2 className="text-4xl font-bold text-center mb-12 text-slate-900 reveal-on-scroll">{t("landing.features.title")}</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <Card className="border-none shadow-lg hover:shadow-xl transition-shadow reveal-on-scroll">
               <CardHeader>
                 <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
                   <Building2 className="w-6 h-6 text-orange-600" />
                 </div>
-                <CardTitle className="text-xl">Опыт работы</CardTitle>
+                <CardTitle className="text-xl">{t("landing.features.items.experience.title")}</CardTitle>
               </CardHeader>
               <CardContent>
-                <CardDescription className="text-base">
-                  Более 30 лет успешной работы в строительной отрасли
-                </CardDescription>
+                <CardDescription className="text-base">{t("landing.features.items.experience.desc")}</CardDescription>
               </CardContent>
             </Card>
 
@@ -128,12 +128,10 @@ export default function Landing() {
                 <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
                   <CheckCircle2 className="w-6 h-6 text-orange-600" />
                 </div>
-                <CardTitle className="text-xl">Гарантия качества</CardTitle>
+                <CardTitle className="text-xl">{t("landing.features.items.quality.title")}</CardTitle>
               </CardHeader>
               <CardContent>
-                <CardDescription className="text-base">
-                  Официальная гарантия на все виды выполненных работ
-                </CardDescription>
+                <CardDescription className="text-base">{t("landing.features.items.quality.desc")}</CardDescription>
               </CardContent>
             </Card>
 
@@ -142,12 +140,10 @@ export default function Landing() {
                 <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
                   <Users className="w-6 h-6 text-orange-600" />
                 </div>
-                <CardTitle className="text-xl">Профессионалы</CardTitle>
+                <CardTitle className="text-xl">{t("landing.features.items.team.title")}</CardTitle>
               </CardHeader>
               <CardContent>
-                <CardDescription className="text-base">
-                  Команда квалифицированных специалистов с большим опытом
-                </CardDescription>
+                <CardDescription className="text-base">{t("landing.features.items.team.desc")}</CardDescription>
               </CardContent>
             </Card>
 
@@ -156,14 +152,58 @@ export default function Landing() {
                 <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
                   <Award className="w-6 h-6 text-orange-600" />
                 </div>
-                <CardTitle className="text-xl">Лучшие цены</CardTitle>
+                <CardTitle className="text-xl">{t("landing.features.items.pricing.title")}</CardTitle>
               </CardHeader>
               <CardContent>
-                <CardDescription className="text-base">
-                  Конкурентные цены без скрытых платежей и переплат
-                </CardDescription>
+                <CardDescription className="text-base">{t("landing.features.items.pricing.desc")}</CardDescription>
               </CardContent>
             </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Supporting Image Blocks */}
+      <section className="py-20 px-4">
+        <div className="container mx-auto max-w-6xl space-y-16">
+          <div className="grid md:grid-cols-2 gap-8 items-center reveal-on-scroll">
+            <div className="overflow-hidden rounded-2xl shadow-lg">
+              <img src="/image1.jpeg" alt="support-1" className="w-full h-[360px] object-cover" />
+            </div>
+            <div className="space-y-4">
+              <h3 className="text-3xl font-bold text-slate-900">{t("landing.support.block1.title")}</h3>
+              <p className="text-lg text-slate-600 leading-relaxed">{t("landing.support.block1.desc")}</p>
+              <div className="flex gap-4 pt-2">
+                <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center">
+                  <Building2 className="w-5 h-5 text-orange-600" />
+                </div>
+                <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center">
+                  <CheckCircle2 className="w-5 h-5 text-orange-600" />
+                </div>
+                <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center">
+                  <Award className="w-5 h-5 text-orange-600" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 items-center reveal-on-scroll">
+            <div className="order-2 md:order-1 space-y-4">
+              <h3 className="text-3xl font-bold text-slate-900">{t("landing.support.block2.title")}</h3>
+              <p className="text-lg text-slate-600 leading-relaxed">{t("landing.support.block2.desc")}</p>
+              <div className="flex gap-2 flex-wrap">
+                {[
+                  t("landing.services.items.build.title"),
+                  t("landing.services.items.electro.title"),
+                  t("landing.services.items.automation.title"),
+                  t("landing.services.items.industry.title"),
+                ].map((chip, i) => (
+                  <span key={i} className="px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-sm">{chip}</span>
+                ))}
+              </div>
+            </div>
+            <div className="order-1 md:order-2 overflow-hidden rounded-2xl shadow-lg">
+              <img src="/image2.jpeg" alt="support-2" className="w-full h-[360px] object-cover" />
+            </div>
           </div>
         </div>
       </section>
@@ -171,45 +211,32 @@ export default function Landing() {
       {/* Services Section */}
       <section className="py-20 px-4">
         <div className="container mx-auto max-w-6xl">
-          <h2 className="text-4xl font-bold text-center mb-12 text-slate-900 reveal-on-scroll">Наши услуги</h2>
+          <h2 className="text-4xl font-bold text-center mb-12 text-slate-900 reveal-on-scroll">{t("landing.services.title")}</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
                 {
-                    title: "Строительство и реконструкция",
-                    description: `
-                Проектирование, строительство и капитальный ремонт зданий и сооружений любого назначения — административных, жилых и промышленных объектов.
-                    `,
+                    title: t("landing.services.items.build.title"),
+                    description: t("landing.services.items.build.desc"),
                 },
                 {
-                    title: "Электромонтаж и связь",
-                    description: `
-                Строительство линий электропередачи (ВЛЭ), трансформаторных подстанций, кабельных линий электроснабжения и волоконно-оптических линий связи.
-                    `,
+                    title: t("landing.services.items.electro.title"),
+                    description: t("landing.services.items.electro.desc"),
                 },
                 {
-                    title: "Автоматизация и системы учёта",
-                    description: `
-                Разработка и внедрение автоматических систем управления технологическими процессами, АСКУЭ и систем мониторинга безопасности.
-                    `,
+                    title: t("landing.services.items.automation.title"),
+                    description: t("landing.services.items.automation.desc"),
                 },
                 {
-                    title: "Промышленное производство",
-                    description: `
-                Сборка шкафов управления, блок-боксов и металлоконструкций различной сложности на современном оборудовании.
-                    `,
+                    title: t("landing.services.items.industry.title"),
+                    description: t("landing.services.items.industry.desc"),
                 },
                 {
-                    title: "Инновационные решения и инфраструктура",
-                    description: `
-                Строительство и монтаж светофорных объектов, внедрение систем «умное освещение», IoT и комплексная автоматизация городской инфраструктуры.
-                    `,
+                    title: t("landing.services.items.innovation.title"),
+                    description: t("landing.services.items.innovation.desc"),
                 },
                 {
-                    title: "Продажи и лицензии",
-                    description: `
-                Оптовые поставки стеновых панелей Мультиплит и КИП-оборудования.  
-                Компания имеет лицензии I категории на строительно-монтажные, проектные и изыскательские работы.
-                    `,
+                    title: t("landing.services.items.sales.title"),
+                    description: t("landing.services.items.sales.desc"),
                 },
             ].map((service, index) => (
               <Card key={index} className="hover:shadow-lg transition-shadow reveal-on-scroll">
@@ -231,11 +258,11 @@ export default function Landing() {
           <div className="grid md:grid-cols-2 gap-8 text-center">
             <div className="reveal-on-scroll">
               <div className="text-5xl font-bold mb-2">55+</div>
-              <div className="text-lg text-orange-100">Завершенных проектов</div>
+              <div className="text-lg text-orange-100">{t("landing.stats.projects")}</div>
             </div>
             <div className="reveal-on-scroll reveal-delay-1">
               <div className="text-5xl font-bold mb-2">30+</div>
-              <div className="text-lg text-orange-100">Лет на рынке</div>
+              <div className="text-lg text-orange-100">{t("landing.stats.years")}</div>
             </div>
           </div>
         </div>
@@ -245,22 +272,20 @@ export default function Landing() {
       <section className="py-20 px-4 bg-slate-50">
         <div className="container mx-auto max-w-4xl">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4 text-slate-900 reveal-on-scroll">Свяжитесь с нами</h2>
-            <p className="text-lg text-slate-600 reveal-on-scroll reveal-delay-1">
-              Оставьте заявку и наш менеджер свяжется с вами в ближайшее время
-            </p>
+            <h2 className="text-4xl font-bold mb-4 text-slate-900 reveal-on-scroll">{t("landing.contact.title")}</h2>
+            <p className="text-lg text-slate-600 reveal-on-scroll reveal-delay-1">{t("landing.contact.subtitle")}</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
             <Card className="border-none shadow-lg reveal-on-scroll">
               <CardHeader>
-                <CardTitle>Контактная информация</CardTitle>
+                <CardTitle>{t("landing.contact.info.title")}</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex items-start gap-3">
                   <Phone className="w-5 h-5 text-orange-600 mt-1" />
                   <div>
-                    <div className="font-semibold">Телефон</div>
+                    <div className="font-semibold">{t("landing.contact.info.phone")}</div>
                     <div className="text-slate-600">+7 (701) 122-24-77</div>
                   </div>
                 </div>
@@ -274,7 +299,7 @@ export default function Landing() {
                 <div className="flex items-start gap-3">
                   <MapPin className="w-5 h-5 text-orange-600 mt-1" />
                   <div>
-                    <div className="font-semibold">Адрес</div>
+                    <div className="font-semibold">{t("landing.contact.info.address")}</div>
                     <div className="text-slate-600">г. Караганда, ул. Пригородная, д. 1б</div>
                   </div>
                 </div>
@@ -283,23 +308,23 @@ export default function Landing() {
 
             <Card className="border-none shadow-lg reveal-on-scroll reveal-delay-1">
               <CardHeader>
-                <CardTitle>Форма обратной связи</CardTitle>
+                <CardTitle>{t("landing.form.title")}</CardTitle>
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div>
-                    <Label htmlFor="name">Имя *</Label>
+                    <Label htmlFor="name">{t("landing.form.name_label")}</Label>
                     <Input
                       id="name"
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      placeholder="Ваше имя"
+                      placeholder={t("landing.form.name_placeholder")}
                     />
                   </div>
                   <div>
-                    <Label htmlFor="phone">Телефон *</Label>
+                    <Label htmlFor="phone">{t("landing.form.phone_label")}</Label>
                     <Input
                       id="phone"
                       name="phone"
@@ -307,7 +332,7 @@ export default function Landing() {
                       value={formData.phone}
                       onChange={handleChange}
                       required
-                      placeholder="+7 (___) ___-__-__"
+                      placeholder={t("landing.form.phone_placeholder")}
                     />
                   </div>
                   <div>
@@ -322,18 +347,18 @@ export default function Landing() {
                     />
                   </div>
                   <div>
-                    <Label htmlFor="message">Сообщение</Label>
+                    <Label htmlFor="message">{t("landing.form.message_label")}</Label>
                     <Textarea
                       id="message"
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
-                      placeholder="Расскажите о вашем проекте..."
+                      placeholder={t("landing.form.message_placeholder")}
                       rows={4}
                     />
                   </div>
                   <Button type="submit" className="w-full bg-orange-600 hover:bg-orange-700">
-                    Отправить заявку
+                    {t("landing.form.submit")}
                   </Button>
                 </form>
               </CardContent>

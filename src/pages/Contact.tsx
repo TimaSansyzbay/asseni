@@ -5,8 +5,10 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Phone, Mail, MapPin, Clock, Send } from "lucide-react";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 export default function Contact() {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -19,12 +21,12 @@ export default function Contact() {
     e.preventDefault();
     const access_key = import.meta.env.VITE_WEB3FORMS_KEY as string;
     if (!access_key) {
-      alert("Не настроен ключ Web3Forms (VITE_WEB3FORMS_KEY)");
+      alert(t("contactPage.form.web3forms_key_missing"));
       return;
     }
     const payload = {
       access_key,
-      subject: "Новая заявка: Контакты",
+      subject: t("contactPage.form.subject"),
       name: formData.name,
       phone: formData.phone,
       email: formData.email,
@@ -38,13 +40,13 @@ export default function Contact() {
       });
       const data = await res.json();
       if (data && data.success) {
-        alert("Спасибо! Ваша заявка отправлена.");
+        alert(t("contactPage.form.success"));
         setFormData({ name: "", phone: "", email: "", serviceType: "", message: "" });
       } else {
-        alert("Ошибка отправки. Попробуйте позже.");
+        alert(t("contactPage.form.error"));
       }
     } catch (_) {
-      alert("Ошибка сети. Попробуйте позже.");
+      alert(t("contactPage.form.network_error"));
     }
   };
 
@@ -57,10 +59,8 @@ export default function Contact() {
       {/* Header */}
       <section className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white py-16 px-4">
         <div className="container mx-auto max-w-6xl">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 reveal-in">Контакты</h1>
-          <p className="text-xl text-slate-300 reveal-delay-1 reveal-in">
-            Свяжитесь с нами удобным для вас способом
-          </p>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 reveal-in">{t("contactPage.header.title")}</h1>
+          <p className="text-xl text-slate-300 reveal-delay-1 reveal-in">{t("contactPage.header.subtitle")}</p>
         </div>
       </section>
 
@@ -73,15 +73,13 @@ export default function Contact() {
                 <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
                   <Phone className="w-6 h-6 text-orange-600" />
                 </div>
-                <CardTitle className="text-lg">Телефон</CardTitle>
+                <CardTitle className="text-lg">{t("contactPage.cards.phone.title")}</CardTitle>
               </CardHeader>
               <CardContent>
                 <CardDescription className="text-base font-semibold text-slate-900">
                   +7 (701) 122-24-77
                 </CardDescription>
-                <CardDescription className="text-sm">
-                  Звоните с 9:00 до 18:00
-                </CardDescription>
+                <CardDescription className="text-sm">{t("contactPage.cards.phone.hours")}</CardDescription>
               </CardContent>
             </Card>
 
@@ -96,9 +94,7 @@ export default function Contact() {
                 <CardDescription className="text-base font-semibold text-slate-900">
                   assenitoo@mail.ru
                 </CardDescription>
-                <CardDescription className="text-sm">
-                  Ответим в течение 24 часов
-                </CardDescription>
+                <CardDescription className="text-sm">{t("contactPage.cards.email.response")}</CardDescription>
               </CardContent>
             </Card>
 
@@ -107,14 +103,14 @@ export default function Contact() {
                 <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
                   <MapPin className="w-6 h-6 text-orange-600" />
                 </div>
-                <CardTitle className="text-lg">Адрес</CardTitle>
+                <CardTitle className="text-lg">{t("contactPage.cards.address.title")}</CardTitle>
               </CardHeader>
               <CardContent>
                 <CardDescription className="text-base font-semibold text-slate-900">
-                  г. Караганда
+                  {t("contactPage.cards.address.city")}
                 </CardDescription>
                 <CardDescription className="text-sm">
-                  улица Пригородная 1б
+                  {t("contactPage.cards.address.street")}
                 </CardDescription>
               </CardContent>
             </Card>
@@ -124,15 +120,13 @@ export default function Contact() {
                 <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
                   <Clock className="w-6 h-6 text-orange-600" />
                 </div>
-                <CardTitle className="text-lg">Режим работы</CardTitle>
+                <CardTitle className="text-lg">{t("contactPage.cards.hours.title")}</CardTitle>
               </CardHeader>
               <CardContent>
                 <CardDescription className="text-base font-semibold text-slate-900">
-                  Пн-Пт: 9:00 - 18:00
+                  {t("contactPage.cards.hours.weekdays")}
                 </CardDescription>
-                <CardDescription className="text-sm">
-                  Сб-Вс: выходной
-                </CardDescription>
+                <CardDescription className="text-sm">{t("contactPage.cards.hours.weekend")}</CardDescription>
               </CardContent>
             </Card>
           </div>
@@ -142,27 +136,25 @@ export default function Contact() {
             {/* Contact Form */}
             <Card className="border-none shadow-lg reveal">
               <CardHeader>
-                <CardTitle className="text-2xl">Форма обратной связи</CardTitle>
-                <CardDescription>
-                  Заполните форму и мы свяжемся с вами в ближайшее время
-                </CardDescription>
+                <CardTitle className="text-2xl">{t("contactPage.form.title")}</CardTitle>
+                <CardDescription>{t("contactPage.form.subtitle")}</CardDescription>
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div>
-                    <Label htmlFor="name">Имя *</Label>
+                    <Label htmlFor="name">{t("contactPage.form.name_label")}</Label>
                     <Input
                       id="name"
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      placeholder="Введите ваше имя"
+                      placeholder={t("contactPage.form.name_placeholder")}
                     />
                   </div>
 
                   <div>
-                    <Label htmlFor="phone">Телефон *</Label>
+                    <Label htmlFor="phone">{t("contactPage.form.phone_label")}</Label>
                     <Input
                       id="phone"
                       name="phone"
@@ -170,7 +162,7 @@ export default function Contact() {
                       value={formData.phone}
                       onChange={handleChange}
                       required
-                      placeholder="+7 (___) ___-__-__"
+                      placeholder={t("contactPage.form.phone_placeholder")}
                     />
                   </div>
 
@@ -186,29 +178,25 @@ export default function Contact() {
                     />
                   </div>
                   <div>
-                    <Label htmlFor="message">Сообщение *</Label>
+                    <Label htmlFor="message">{t("contactPage.form.message_label")}</Label>
                     <Textarea
                       id="message"
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
                       required
-                      placeholder="Расскажите подробнее о вашем проекте..."
+                      placeholder={t("contactPage.form.message_placeholder")}
                       rows={5}
                     />
                   </div>
 
                   <Button type="submit" className="w-full bg-orange-600 hover:bg-orange-700">
                     <Send className="w-4 h-4 mr-2" />
-                    Отправить заявку
+                    {t("contactPage.form.submit")}
                   </Button>
                   <div className="flex gap-3">
                     <div>
-                      <div className="text-sm text-slate-600">
-                        👉 Мы нацелены на долговременное и взаимовыгодное сотрудничество, 
-                        поэтому готовы рассмотреть эксклюзивные условия работы с вашим предприятием. 
-                        Будем рады видеть вас в числе наших постоянных партнёров!
-                      </div>
+                      <div className="text-sm text-slate-600">{t("contactPage.form.footnote")}</div>
                     </div>
                   </div>  
                 </form>
@@ -219,46 +207,38 @@ export default function Contact() {
             <div className="space-y-6">
               <Card className="border-none shadow-lg reveal reveal-delay-1">
                 <CardHeader>
-                  <CardTitle className="text-2xl">Почему стоит выбрать нас?</CardTitle>
+                  <CardTitle className="text-2xl">{t("contactPage.why.title")}</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="flex gap-3">
                     <div className="w-2 h-2 bg-orange-600 rounded-full mt-2 flex-shrink-0"></div>
                     <div>
-                      <div className="font-semibold mb-1">30 лет опыта</div>
-                      <div className="text-sm text-slate-600">
-                        Более трёх десятилетий работы в сфере строительства и автоматизации промышленных процессов.
-                      </div>
+                      <div className="font-semibold mb-1">{t("contactPage.why.points.exp.title")}</div>
+                      <div className="text-sm text-slate-600">{t("contactPage.why.points.exp.desc")}</div>
                     </div>
                   </div>
 
                   <div className="flex gap-3">
                     <div className="w-2 h-2 bg-orange-600 rounded-full mt-2 flex-shrink-0"></div>
                     <div>
-                      <div className="font-semibold mb-1">Комплексные решения</div>
-                      <div className="text-sm text-slate-600">
-                        От проектирования и монтажа до пусконаладочных работ и внедрения систем автоматизации.
-                      </div>
+                      <div className="font-semibold mb-1">{t("contactPage.why.points.solutions.title")}</div>
+                      <div className="text-sm text-slate-600">{t("contactPage.why.points.solutions.desc")}</div>
                     </div>
                   </div>
 
                   <div className="flex gap-3">
                     <div className="w-2 h-2 bg-orange-600 rounded-full mt-2 flex-shrink-0"></div>
                     <div>
-                      <div className="font-semibold mb-1">Собственное производство</div>
-                      <div className="text-sm text-slate-600">
-                        Изготовление шкафов управления, металлоконструкций и оборудования на современном европейском оборудовании.
-                      </div>
+                      <div className="font-semibold mb-1">{t("contactPage.why.points.production.title")}</div>
+                      <div className="text-sm text-slate-600">{t("contactPage.why.points.production.desc")}</div>
                     </div>
                   </div>
 
                   <div className="flex gap-3">
                     <div className="w-2 h-2 bg-orange-600 rounded-full mt-2 flex-shrink-0"></div>
                     <div>
-                      <div className="font-semibold mb-1">Гарантия качества</div>
-                      <div className="text-sm text-slate-600">
-                        Официальная гарантия на все виды выполненных работ
-                      </div>
+                      <div className="font-semibold mb-1">{t("contactPage.why.points.quality.title")}</div>
+                      <div className="text-sm text-slate-600">{t("contactPage.why.points.quality.desc")}</div>
                     </div>
                   </div>
                 </CardContent>
@@ -266,23 +246,17 @@ export default function Contact() {
 
               <Card className="border-none shadow-lg bg-gradient-to-br from-orange-600 to-orange-700 text-white reveal reveal-delay-2">
                 <CardHeader>
-                  <CardTitle className="text-2xl">Срочная консультация</CardTitle>
-                  <CardDescription className="text-orange-100">
-                    Нужна помощь прямо сейчас?
-                  </CardDescription>
+                  <CardTitle className="text-2xl">{t("contactPage.urgent.title")}</CardTitle>
+                  <CardDescription className="text-orange-100">{t("contactPage.urgent.subtitle")}</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
-                    <p className="text-orange-50">
-                      Позвоните нам и получите ответы на все ваши вопросы
-                    </p>
+                    <p className="text-orange-50">{t("contactPage.urgent.body")}</p>
                     <div className="flex items-center gap-3 text-2xl font-bold">
                       <Phone className="w-6 h-6" />
                       +7 (701) 122-24-77
                     </div>
-                    <p className="text-sm text-orange-100">
-                      Работаем с понедельника по пятницу с 9:00 до 18:00
-                    </p>
+                    <p className="text-sm text-orange-100">{t("contactPage.cards.hours.weekdays")}</p>
                   </div>
                 </CardContent>
               </Card>
