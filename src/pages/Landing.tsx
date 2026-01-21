@@ -316,16 +316,7 @@ export default function Landing() {
                 </div>
               </div>
 
-              {/* CTA Button */}
-              <div className="mt-10 reveal-on-scroll">
-                <Button
-                  className="bg-orange-500 hover:bg-orange-600 text-white rounded-full px-6 py-3 h-auto font-medium flex items-center gap-2"
-                  onClick={() => navigate("/services")}
-                >
-                  {t("landing.features.explore_services")}
-                  <ArrowUpRight className="w-4 h-4" />
-                </Button>
-              </div>
+
             </div>
 
             {/* Right Side - Image */}
