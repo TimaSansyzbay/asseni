@@ -78,7 +78,7 @@ export default function Landing() {
       {/* Hero Section */}
       <section className="px-4 lg:px-8 py-4">
         <div className="container mx-auto max-w-7xl">
-          <div className="relative rounded-3xl overflow-hidden bg-slate-800 min-h-[600px] lg:min-h-[650px]">
+          <div className="relative rounded-3xl overflow-hidden bg-slate-800 min-h-[600px] lg:min-h-[650px] flex flex-col">
             {/* Background Image */}
             <div
               className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -88,9 +88,9 @@ export default function Landing() {
             </div>
 
             {/* Content Container */}
-            <div className="relative z-10 h-full flex flex-col lg:flex-row items-end lg:items-center justify-between px-6 lg:px-12 py-8 lg:py-12 gap-8">
+            <div className="relative z-10 flex-1 flex flex-col lg:flex-row items-end justify-between px-6 lg:px-12 py-8 lg:py-16 gap-8">
               {/* Left Side - Headline & CTA */}
-              <div className="flex flex-col justify-end lg:justify-center h-full max-w-xl space-y-6 order-2 lg:order-1">
+              <div className="flex flex-col justify-end h-full max-w-xl space-y-6 order-2 lg:order-1">
                 <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight reveal-on-scroll">
                   {t("landing.hero.title_headline")}
                 </h1>
