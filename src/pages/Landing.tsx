@@ -78,19 +78,19 @@ export default function Landing() {
       {/* Hero Section */}
       <section className="px-4 lg:px-8 py-4">
         <div className="container mx-auto max-w-7xl">
-          <div className="relative rounded-3xl overflow-hidden bg-slate-800 min-h-[600px] lg:min-h-[650px] flex flex-col">
+          <div className="relative rounded-3xl overflow-hidden bg-slate-800 min-h-0 lg:min-h-[650px] flex flex-col">
             {/* Background Image */}
             <div
-              className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+              className="relative h-[400px] w-full lg:absolute lg:inset-0 lg:h-full bg-cover bg-[center_top] lg:bg-center bg-no-repeat transition-all duration-500"
               style={{ backgroundImage: "url('/hero-bg.png')" }}
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-slate-900/60 via-slate-900/30 to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent lg:bg-gradient-to-r lg:from-slate-900/60 lg:via-slate-900/30 lg:to-transparent"></div>
             </div>
 
             {/* Content Container */}
-            <div className="relative z-10 flex-1 flex flex-col lg:flex-row items-end justify-between px-6 lg:px-12 py-8 lg:py-16 gap-8">
+            <div className="relative z-10 flex-1 flex flex-col lg:flex-row items-end justify-between px-6 py-8 lg:px-12 lg:py-16 gap-8 bg-slate-800 lg:bg-transparent">
               {/* Left Side - Headline & CTA */}
-              <div className="flex flex-col justify-end h-full max-w-xl space-y-6 order-2 lg:order-1">
+              <div className="flex flex-col justify-end h-full max-w-xl space-y-6 w-full lg:w-auto">
                 <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight reveal-on-scroll">
                   {t("landing.hero.title_headline")}
                 </h1>
@@ -127,7 +127,7 @@ export default function Landing() {
               </div>
 
               {/* Right Side - Contact Form Card */}
-              <div className="w-full lg:w-auto lg:min-w-[380px] order-1 lg:order-2 reveal-on-scroll reveal-delay-2">
+              <div className="w-full lg:w-auto lg:min-w-[380px] reveal-on-scroll reveal-delay-2">
                 <Card className="border-none shadow-2xl bg-white/98 backdrop-blur-sm">
                   <CardHeader className="pb-4">
                     <CardTitle className="text-xl text-center text-slate-900">
