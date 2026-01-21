@@ -3,10 +3,11 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Building2, CheckCircle2, Users, Award, Phone, Mail, MapPin } from "lucide-react";
+import { Building2, CheckCircle2, Users, Award, Phone, Mail, MapPin, ArrowUpRight, Calendar } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { projects } from "@/components/projects/projects";
 
 export default function Landing() {
   const navigate = useNavigate();
@@ -75,89 +76,268 @@ export default function Landing() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white py-24 px-4">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDE2djhoOHYtOGgtOHptMCAxNnY4aDh2LThoLTh6bS0xNiAwdjhoOHYtOGgtOHptMC0xNnY4aDh2LThoLTh6Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-20"></div>
-        <div className="container mx-auto max-w-6xl relative z-10">
-          <div className="text-center space-y-6">
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tight reveal-on-scroll">
-              {t("landing.hero.title_1")} <span className="text-orange-500">{t("brand.name")}</span>
-            </h1>
-            <p className="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto reveal-on-scroll reveal-delay-1">
-              {t("landing.hero.subtitle")}
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6 reveal-on-scroll reveal-delay-2">
-              <Button 
-                size="lg" 
-                className="bg-orange-600 hover:bg-orange-700 text-lg px-8 py-6"
-                onClick={() => navigate("/contact")}
-              >
-                {t("landing.hero.cta_consult")}
-              </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="text-lg px-8 py-6 border-white text-black hover:bg-slate-900 hover:text-white"
-                onClick={() => navigate("/works")}
-              >
-                {t("landing.hero.cta_projects")}
-              </Button>
+      <section className="px-4 lg:px-8 py-4">
+        <div className="container mx-auto max-w-7xl">
+          <div className="relative rounded-3xl overflow-hidden bg-slate-800 min-h-[600px] lg:min-h-[650px]">
+            {/* Background Image */}
+            <div
+              className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+              style={{ backgroundImage: "url('/hero-bg.png')" }}
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-slate-900/60 via-slate-900/30 to-transparent"></div>
+            </div>
+
+            {/* Content Container */}
+            <div className="relative z-10 h-full flex flex-col lg:flex-row items-end lg:items-center justify-between px-6 lg:px-12 py-8 lg:py-12 gap-8">
+              {/* Left Side - Headline & CTA */}
+              <div className="flex flex-col justify-end lg:justify-center h-full max-w-xl space-y-6 order-2 lg:order-1">
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight reveal-on-scroll">
+                  {t("landing.hero.title_headline")}
+                </h1>
+
+                {/* CTA Button with Reviews */}
+                <div className="flex items-center gap-4 flex-wrap reveal-on-scroll reveal-delay-1">
+                  <Button
+                    size="lg"
+                    className="bg-white hover:bg-slate-100 text-slate-900 rounded-full pl-6 pr-3 py-6 h-auto flex items-center gap-3 text-base font-medium shadow-lg"
+                    onClick={() => navigate("/contact")}
+                  >
+                    {t("landing.hero.cta_consult")}
+                    <span className="bg-orange-500 rounded-full p-2">
+                      <ArrowUpRight className="w-5 h-5 text-white" />
+                    </span>
+                  </Button>
+
+                  {/* Reviews Badge */}
+                  <div className="flex items-center gap-3 bg-white/95 backdrop-blur-sm rounded-full px-4 py-2 shadow-lg">
+                    <div className="flex -space-x-2">
+                      <div className="w-8 h-8 rounded-full bg-green-500 flex items-center justify-center text-white text-xs font-bold border-2 border-white">G</div>
+                      <div className="w-8 h-8 rounded-full bg-orange-500 flex items-center justify-center text-white text-xs font-bold border-2 border-white">C</div>
+                      <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white text-xs font-bold border-2 border-white">2G</div>
+                    </div>
+                    <div className="text-sm">
+                      <div className="flex items-center gap-1 text-yellow-500">
+                        <span>★★★★★</span>
+                        <span className="font-semibold text-slate-900">5.0</span>
+                      </div>
+                      <div className="text-slate-600 text-xs">55+ {t("landing.hero.reviews")}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right Side - Contact Form Card */}
+              <div className="w-full lg:w-auto lg:min-w-[380px] order-1 lg:order-2 reveal-on-scroll reveal-delay-2">
+                <Card className="border-none shadow-2xl bg-white/98 backdrop-blur-sm">
+                  <CardHeader className="pb-4">
+                    <CardTitle className="text-xl text-center text-slate-900">
+                      {t("landing.hero.form_title")}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <div>
+                      <Input
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        placeholder={t("landing.form.name_placeholder")}
+                        className="h-12 bg-slate-50 border-slate-200"
+                      />
+                    </div>
+                    <div className="grid grid-cols-2 gap-3">
+                      <Input
+                        name="phone"
+                        type="tel"
+                        value={formData.phone}
+                        onChange={handleChange}
+                        placeholder={t("landing.hero.phone_placeholder")}
+                        className="h-12 bg-slate-50 border-slate-200"
+                      />
+                      <Input
+                        name="email"
+                        type="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        placeholder={t("landing.hero.email_placeholder")}
+                        className="h-12 bg-slate-50 border-slate-200"
+                      />
+                    </div>
+                    <div>
+                      <Textarea
+                        name="message"
+                        value={formData.message}
+                        onChange={handleChange}
+                        placeholder={t("landing.form.message_placeholder")}
+                        rows={3}
+                        className="bg-slate-50 border-slate-200 resize-none"
+                      />
+                    </div>
+                    <Button
+                      onClick={handleSubmit}
+                      className="w-full h-12 bg-orange-500 hover:bg-orange-600 text-white font-medium rounded-xl"
+                    >
+                      {t("landing.hero.get_quote")}
+                    </Button>
+                  </CardContent>
+                </Card>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
+      {/* Featured Projects Section */}
+      <section className="py-16 px-4 lg:px-8 bg-slate-100">
+        <div className="container mx-auto max-w-7xl">
+          <div className="flex items-center justify-between mb-10 reveal-on-scroll">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900">
+              {t("landing.featured.title")}
+            </h2>
+            <Button
+              variant="outline"
+              className="bg-slate-900 text-white hover:bg-slate-800 rounded-full px-6 py-3 h-auto font-medium flex items-center gap-2"
+              onClick={() => navigate("/works")}
+            >
+              {t("landing.featured.view_all")}
+              <ArrowUpRight className="w-4 h-4" />
+            </Button>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Featured Project Cards - Using the 4 most recent projects */}
+            {[
+              { image: "/project-1.png", project: projects.find(p => p.id === 52) }, // BI Group
+              { image: "/project-2.png", project: projects.find(p => p.id === 55) }, // Транстелеком
+              { image: "/project-3.png", project: projects.find(p => p.id === 51) }, // Транстелеком
+              { image: "/project-4.png", project: projects.find(p => p.id === 50) }, // Управление строительства
+            ].map((item, index) => (
+              <div
+                key={index}
+                className={`group cursor-pointer reveal-on-scroll ${index > 0 ? `reveal-delay-${index}` : ''}`}
+                onClick={() => navigate("/works")}
+              >
+                <div className="relative rounded-2xl overflow-hidden bg-white shadow-md hover:shadow-xl transition-all duration-300">
+                  {/* Project Image */}
+                  <div className="aspect-[4/5] overflow-hidden">
+                    <img
+                      src={item.image}
+                      alt={item.project?.client || "Project"}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+
+                  {/* Info Overlay at Bottom */}
+                  <div className="absolute bottom-0 left-0 right-0 p-4">
+                    <div className="bg-slate-900/90 backdrop-blur-sm rounded-xl p-4 flex items-center justify-between">
+                      <div className="flex-1 min-w-0">
+                        <div className="text-white font-semibold text-lg truncate">
+                          {item.project?.client ? t(`projects.${item.project.id}.client`, { defaultValue: item.project.client }).split(" ").slice(0, 2).join(" ") : "Project"}
+                        </div>
+                        <div className="text-slate-300 text-xs flex items-center gap-3 mt-1">
+                          <span className="flex items-center gap-1">
+                            <Calendar className="w-3 h-3" />
+                            {item.project?.year}
+                          </span>
+                          <span className="flex items-center gap-1">
+                            <Building2 className="w-3 h-3" />
+                            {item.project?.workTypes[0] ? t(`projects.${item.project.id}.workTypes.0`, { defaultValue: item.project.workTypes[0] }).slice(0, 15) + (item.project.workTypes[0].length > 15 ? '...' : '') : ''}
+                          </span>
+                        </div>
+                      </div>
+                      <button className="bg-white rounded-lg p-2 ml-3 hover:bg-slate-100 transition-colors">
+                        <ArrowUpRight className="w-4 h-4 text-slate-900" />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Features Section */}
-      <section className="py-20 px-4 bg-slate-50">
-        <div className="container mx-auto max-w-6xl">
-          <h2 className="text-4xl font-bold text-center mb-12 text-slate-900 reveal-on-scroll">{t("landing.features.title")}</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <Card className="border-none shadow-lg hover:shadow-xl transition-shadow reveal-on-scroll">
-              <CardHeader>
-                <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
-                  <Building2 className="w-6 h-6 text-orange-600" />
-                </div>
-                <CardTitle className="text-xl">{t("landing.features.items.experience.title")}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription className="text-base">{t("landing.features.items.experience.desc")}</CardDescription>
-              </CardContent>
-            </Card>
+      <section className="py-20 px-4 lg:px-8 bg-slate-100">
+        <div className="container mx-auto max-w-7xl">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left Side - Content */}
+            <div className="reveal-on-scroll">
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+                {t("landing.features.title")}
+              </h2>
+              <p className="text-slate-600 text-lg mb-10">
+                {t("landing.features.subtitle")}
+              </p>
 
-            <Card className="border-none shadow-lg hover:shadow-xl transition-shadow reveal-on-scroll reveal-delay-1">
-              <CardHeader>
-                <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
-                  <CheckCircle2 className="w-6 h-6 text-orange-600" />
+              {/* Feature Items */}
+              <div className="space-y-6">
+                {/* Feature 1 - Experience */}
+                <div className="flex items-start gap-4 p-4 bg-white/60 rounded-xl hover:bg-white/80 transition-colors">
+                  <div className="w-12 h-12 bg-slate-200 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <Building2 className="w-6 h-6 text-slate-600" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-slate-900 text-lg">{t("landing.features.items.experience.title")}</h3>
+                    <p className="text-slate-600 text-sm leading-relaxed">{t("landing.features.items.experience.desc")}</p>
+                  </div>
                 </div>
-                <CardTitle className="text-xl">{t("landing.features.items.quality.title")}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription className="text-base">{t("landing.features.items.quality.desc")}</CardDescription>
-              </CardContent>
-            </Card>
 
-            <Card className="border-none shadow-lg hover:shadow-xl transition-shadow reveal-on-scroll reveal-delay-2">
-              <CardHeader>
-                <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
-                  <Users className="w-6 h-6 text-orange-600" />
+                {/* Feature 2 - Quality */}
+                <div className="flex items-start gap-4 p-4 bg-white/60 rounded-xl hover:bg-white/80 transition-colors reveal-on-scroll reveal-delay-1">
+                  <div className="w-12 h-12 bg-slate-200 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <CheckCircle2 className="w-6 h-6 text-slate-600" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-slate-900 text-lg">{t("landing.features.items.quality.title")}</h3>
+                    <p className="text-slate-600 text-sm leading-relaxed">{t("landing.features.items.quality.desc")}</p>
+                  </div>
                 </div>
-                <CardTitle className="text-xl">{t("landing.features.items.team.title")}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription className="text-base">{t("landing.features.items.team.desc")}</CardDescription>
-              </CardContent>
-            </Card>
 
-            <Card className="border-none shadow-lg hover:shadow-xl transition-shadow reveal-on-scroll reveal-delay-3">
-              <CardHeader>
-                <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
-                  <Award className="w-6 h-6 text-orange-600" />
+                {/* Feature 3 - Team */}
+                <div className="flex items-start gap-4 p-4 bg-white/60 rounded-xl hover:bg-white/80 transition-colors reveal-on-scroll reveal-delay-2">
+                  <div className="w-12 h-12 bg-slate-200 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <Users className="w-6 h-6 text-slate-600" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-slate-900 text-lg">{t("landing.features.items.team.title")}</h3>
+                    <p className="text-slate-600 text-sm leading-relaxed">{t("landing.features.items.team.desc")}</p>
+                  </div>
                 </div>
-                <CardTitle className="text-xl">{t("landing.features.items.pricing.title")}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription className="text-base">{t("landing.features.items.pricing.desc")}</CardDescription>
-              </CardContent>
-            </Card>
+
+                {/* Feature 4 - Pricing */}
+                <div className="flex items-start gap-4 p-4 bg-white/60 rounded-xl hover:bg-white/80 transition-colors reveal-on-scroll reveal-delay-3">
+                  <div className="w-12 h-12 bg-slate-200 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <Award className="w-6 h-6 text-slate-600" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-slate-900 text-lg">{t("landing.features.items.pricing.title")}</h3>
+                    <p className="text-slate-600 text-sm leading-relaxed">{t("landing.features.items.pricing.desc")}</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* CTA Button */}
+              <div className="mt-10 reveal-on-scroll">
+                <Button
+                  className="bg-slate-900 hover:bg-slate-800 text-white rounded-full px-6 py-3 h-auto font-medium flex items-center gap-2"
+                  onClick={() => navigate("/services")}
+                >
+                  {t("landing.features.explore_services")}
+                  <ArrowUpRight className="w-4 h-4" />
+                </Button>
+              </div>
+            </div>
+
+            {/* Right Side - Image */}
+            <div className="reveal-on-scroll reveal-delay-1">
+              <div className="relative rounded-2xl overflow-hidden shadow-xl">
+                <img
+                  src="/features.png"
+                  alt="Construction professional"
+                  className="w-full h-[500px] lg:h-[600px] object-cover"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -214,30 +394,30 @@ export default function Landing() {
           <h2 className="text-4xl font-bold text-center mb-12 text-slate-900 reveal-on-scroll">{t("landing.services.title")}</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-                {
-                    title: t("landing.services.items.build.title"),
-                    description: t("landing.services.items.build.desc"),
-                },
-                {
-                    title: t("landing.services.items.electro.title"),
-                    description: t("landing.services.items.electro.desc"),
-                },
-                {
-                    title: t("landing.services.items.automation.title"),
-                    description: t("landing.services.items.automation.desc"),
-                },
-                {
-                    title: t("landing.services.items.industry.title"),
-                    description: t("landing.services.items.industry.desc"),
-                },
-                {
-                    title: t("landing.services.items.innovation.title"),
-                    description: t("landing.services.items.innovation.desc"),
-                },
-                {
-                    title: t("landing.services.items.sales.title"),
-                    description: t("landing.services.items.sales.desc"),
-                },
+              {
+                title: t("landing.services.items.build.title"),
+                description: t("landing.services.items.build.desc"),
+              },
+              {
+                title: t("landing.services.items.electro.title"),
+                description: t("landing.services.items.electro.desc"),
+              },
+              {
+                title: t("landing.services.items.automation.title"),
+                description: t("landing.services.items.automation.desc"),
+              },
+              {
+                title: t("landing.services.items.industry.title"),
+                description: t("landing.services.items.industry.desc"),
+              },
+              {
+                title: t("landing.services.items.innovation.title"),
+                description: t("landing.services.items.innovation.desc"),
+              },
+              {
+                title: t("landing.services.items.sales.title"),
+                description: t("landing.services.items.sales.desc"),
+              },
             ].map((service, index) => (
               <Card key={index} className="hover:shadow-lg transition-shadow reveal-on-scroll">
                 <CardHeader>

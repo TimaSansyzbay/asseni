@@ -1,11 +1,15 @@
 {
-  "brand": { "name": "Asseni" },
+  "brand": {
+    "name": "Asseni"
+  },
   "nav": {
     "home": "Home",
     "works": "Our works",
     "contact": "Contacts"
   },
-  "cta": { "request_call": "Request a call" },
+  "cta": {
+    "request_call": "Request a call"
+  },
   "footer": {
     "navigation": "Navigation",
     "contacts": "Contacts",
@@ -20,12 +24,20 @@
   "landing": {
     "hero": {
       "title_1": "Construction company",
+      "title_headline": "Reliable Construction Solutions",
       "subtitle": "Professional construction and renovation of any complexity. Quality, reliability, and an individual approach to every project.",
-      "cta_consult": "Get a consultation",
-      "cta_projects": "Our projects"
+      "cta_consult": "Contact Us",
+      "cta_projects": "Our projects",
+      "form_title": "Get Your Free Construction Quote Today!",
+      "get_quote": "Get Our Free Quote",
+      "reviews": "Reviews",
+      "phone_placeholder": "Phone number",
+      "email_placeholder": "Email address"
     },
     "features": {
-      "title": "Why choose us",
+      "title": "What makes us different",
+      "subtitle": "Experience a higher standard in construction.",
+      "explore_services": "Explore all services",
       "items": {
         "experience": {
           "title": "Experience",
@@ -47,6 +59,10 @@
     },
     "gallery": {
       "title": "Project gallery"
+    },
+    "featured": {
+      "title": "Featured Projects",
+      "view_all": "View all projects"
     },
     "support": {
       "block1": {
@@ -122,10 +138,23 @@
       "subtitle": "Contact us in the way that’s convenient for you"
     },
     "cards": {
-      "phone": { "title": "Phone", "hours": "Call from 9:00 to 18:00" },
-      "email": { "response": "We will reply within 24 hours" },
-      "address": { "title": "Address", "city": "Astana", "street": "Turan pr. 19/1, VP-9, office №7" },
-      "hours": { "title": "Working hours", "weekdays": "Mon–Fri: 9:00 – 18:00", "weekend": "Sat–Sun: closed" }
+      "phone": {
+        "title": "Phone",
+        "hours": "Call from 9:00 to 18:00"
+      },
+      "email": {
+        "response": "We will reply within 24 hours"
+      },
+      "address": {
+        "title": "Address",
+        "city": "Astana",
+        "street": "Turan pr. 19/1, VP-9, office №7"
+      },
+      "hours": {
+        "title": "Working hours",
+        "weekdays": "Mon–Fri: 9:00 – 18:00",
+        "weekend": "Sat–Sun: closed"
+      }
     },
     "form": {
       "title": "Feedback form",
@@ -150,27 +179,26 @@
       "body": "Call us and get answers to all your questions"
     },
     "why": {
-        "title": "Why Choose Us",
-        "points": {
-            "exp": {
-            "title": "30 Years of Experience",
-            "desc": "Over three decades of expertise in construction and industrial process automation."
-            },
-            "solutions": {
-            "title": "Comprehensive Solutions",
-            "desc": "From design and installation to commissioning and implementation of automation systems."
-            },
-            "production": {
-            "title": "Own Production Facilities",
-            "desc": "Manufacturing of control cabinets, metal structures, and equipment using modern European machinery."
-            },
-            "quality": {
-            "title": "Quality Guarantee",
-            "desc": "Official warranty for all types of completed work."
-            }
+      "title": "Why Choose Us",
+      "points": {
+        "exp": {
+          "title": "30 Years of Experience",
+          "desc": "Over three decades of expertise in construction and industrial process automation."
+        },
+        "solutions": {
+          "title": "Comprehensive Solutions",
+          "desc": "From design and installation to commissioning and implementation of automation systems."
+        },
+        "production": {
+          "title": "Own Production Facilities",
+          "desc": "Manufacturing of control cabinets, metal structures, and equipment using modern European machinery."
+        },
+        "quality": {
+          "title": "Quality Guarantee",
+          "desc": "Official warranty for all types of completed work."
         }
+      }
     }
-
   },
   "ourWorks": {
     "header": {
@@ -186,286 +214,429 @@
       "subtitle": "Try changing your search parameters"
     },
     "found_count": "Projects found:",
-    "view": { "grid_aria": "Grid view", "list_aria": "List view" },
-    "labels": { "work_types": "Work types:" },
-    "table": { "client": "Client name", "work_types": "Work types", "year": "Year", "status": "Status" },
-    "status": { "completed": "Completed", "in_progress": "In progress", "planned": "Planned" },
-    "stats": { "title": "Project statistics", "completed": "Completed projects", "in_progress": "Projects in progress", "planned": "Planned projects" }
+    "view": {
+      "grid_aria": "Grid view",
+      "list_aria": "List view"
+    },
+    "labels": {
+      "work_types": "Work types:"
+    },
+    "table": {
+      "client": "Client name",
+      "work_types": "Work types",
+      "year": "Year",
+      "status": "Status"
+    },
+    "status": {
+      "completed": "Completed",
+      "in_progress": "In progress",
+      "planned": "Planned"
+    },
+    "stats": {
+      "title": "Project statistics",
+      "completed": "Completed projects",
+      "in_progress": "Projects in progress",
+      "planned": "Planned projects"
+    }
   },
   "projects": {
     "1": {
       "client": "ГУ «Аппарат акима СКО»",
-      "workTypes": ["Major repair"],
+      "workTypes": [
+        "Major repair"
+      ],
       "description": "Major repair of the administrative building at 27 Konstitutsii St (general contractor)"
     },
     "2": {
       "client": "ГУ «Департамент координации занятости и социальных программ СКО»",
-      "workTypes": ["Major repair"],
+      "workTypes": [
+        "Major repair"
+      ],
       "description": "Major repair of the building roof (general contractor)"
     },
     "3": {
       "client": "КГКП «Областной перинатальный центр»",
-      "workTypes": ["Major repair"],
+      "workTypes": [
+        "Major repair"
+      ],
       "description": "Major repair of the maternity hospital building (general contractor)"
     },
     "4": {
       "client": "РГП на ПХВ «Казавтодор»",
-      "workTypes": ["Routine repair"],
+      "workTypes": [
+        "Routine repair"
+      ],
       "description": "Routine repair of DEP-1 (general contractor)"
     },
     "5": {
       "client": "ГУ «Департамент строительства СКО»",
-      "workTypes": ["Construction"],
+      "workTypes": [
+        "Construction"
+      ],
       "description": "Construction of a medical outpatient clinic in Troitskoye village (general contractor)"
     },
     "6": {
       "client": "КГУ «Петропавловский детский психоневрологический дом-интернат»",
-      "workTypes": ["Major repair"],
+      "workTypes": [
+        "Major repair"
+      ],
       "description": "Major repair of the second floor (general contractor)"
     },
     "7": {
       "client": "ГУ «Отдел ЖКХ ПТ и АД» г. Петропавловск",
-      "workTypes": ["Major repair", "Heat supply"],
+      "workTypes": [
+        "Major repair",
+        "Heat supply"
+      ],
       "description": "Major repair of the heat supply system in Petropavlovsk (general contractor)"
     },
     "8": {
       "client": "КГКП «Областной перинатальный центр»",
-      "workTypes": ["Major repair", "Plumbing works", "Electrical installation works", "Ventilation works"],
+      "workTypes": [
+        "Major repair",
+        "Plumbing works",
+        "Electrical installation works",
+        "Ventilation works"
+      ],
       "description": "Major repair of plumbing, electrical and ventilation networks (general contractor)"
     },
     "9": {
       "client": "АО «Банк Центр Кредит»",
-      "workTypes": ["Construction and finishing works"],
+      "workTypes": [
+        "Construction and finishing works"
+      ],
       "description": "Construction and finishing works of the bank branch (general contractor)"
     },
     "10": {
       "client": "ГУ «Департамент статистики СКО»",
-      "workTypes": ["Major repair"],
+      "workTypes": [
+        "Major repair"
+      ],
       "description": "Major repair of stairways and replacement of door blocks (general contractor)"
     },
     "11": {
       "client": "ГУ «Департамент статистики СКО»",
-      "workTypes": ["Routine repair"],
+      "workTypes": [
+        "Routine repair"
+      ],
       "description": "Routine repair of the administrative building of the statistics department (general contractor)"
     },
     "12": {
       "client": "ГУ «Управление здравоохранения СКО»",
-      "workTypes": ["Roofing works"],
+      "workTypes": [
+        "Roofing works"
+      ],
       "description": "Installation of a hipped roof over the surgery operating block building (general contractor)"
     },
     "13": {
       "client": "КГУ «Петропавловский детский психоневрологический дом-интернат»",
-      "workTypes": ["Major repair"],
+      "workTypes": [
+        "Major repair"
+      ],
       "description": "Major repair of the bath and laundry complex, plinth and entrance group (general contractor)"
     },
     "14": {
       "client": "ГУ «Служба пожаротушения и аварийно-спасательных работ» ДЧС СКО МЧС РК",
-      "workTypes": ["Major repair"],
+      "workTypes": [
+        "Major repair"
+      ],
       "description": "Major repair of fire station buildings SPCh-3, PCh-4, PCh-5 (general contractor)"
     },
     "15": {
       "client": "ГУ «Управление здравоохранения СКО»",
-      "workTypes": ["Roofing works"],
+      "workTypes": [
+        "Roofing works"
+      ],
       "description": "Installation of a hipped roof for the administrative building and passage (general contractor)"
     },
     "16": {
       "client": "ГУ «Управление здравоохранения СКО»",
-      "workTypes": ["Major repair", "Heating systems", "Water supply", "Sewerage"],
+      "workTypes": [
+        "Major repair",
+        "Heating systems",
+        "Water supply",
+        "Sewerage"
+      ],
       "description": "Major repair of heating, water supply and sewerage systems of the 1st and 5th departments (general contractor)"
     },
     "17": {
       "client": "ГУ «Отдел ЖКХ ПТ и АД» г. Петропавловск",
-      "workTypes": ["Major repair", "Roofing works"],
+      "workTypes": [
+        "Major repair",
+        "Roofing works"
+      ],
       "description": "Major repair of the roof of the residential building at 52 S. Mukanov St (general contractor)"
     },
     "18": {
       "client": "ГУ «Отдел ЖКХ ПТ и АД» г. Петропавловск",
-      "workTypes": ["Major repair", "Roofing works"],
+      "workTypes": [
+        "Major repair",
+        "Roofing works"
+      ],
       "description": "Major repair of the roof of the residential building at 238 Mira St (general contractor)"
     },
     "19": {
       "client": "ГУ «Отдел ЖКХ ПТ и АД» г. Петропавловск",
-      "workTypes": ["Major repair"],
+      "workTypes": [
+        "Major repair"
+      ],
       "description": "Major repair of the residential building at 73 Mira St (general contractor)"
     },
     "20": {
       "client": "РГКП «Северо-Казахстанский областной центр санитарно-эпидемиологической экспертизы» КГСЭН МЗ РК",
-      "workTypes": ["Major repair"],
+      "workTypes": [
+        "Major repair"
+      ],
       "description": "Major repair of the second floor of the branch in Ayyrtau district (general contractor)"
     },
     "21": {
       "client": "РГКП «Северо-Казахстанский областной центр санитарно-эпидемиологической экспертизы» КГСЭН МЗ РК",
-      "workTypes": ["Major repair"],
+      "workTypes": [
+        "Major repair"
+      ],
       "description": "Major repair with replacement of window blocks in the bacteriological laboratory (general contractor)"
     },
     "22": {
       "client": "АО «Петропавловский протезно-ортопедический центр»",
-      "workTypes": ["Routine repair"],
+      "workTypes": [
+        "Routine repair"
+      ],
       "description": "Routine repair of toilets and the 3rd floor corridor, window openings of stairwells No.1,2 (general contractor)"
     },
     "23": {
       "client": "АО «Петропавловский протезно-ортопедический центр»",
-      "workTypes": ["Routine repair"],
+      "workTypes": [
+        "Routine repair"
+      ],
       "description": "Routine repair of window blocks (general contractor)"
     },
     "24": {
       "client": "АО «Петропавловский протезно-ортопедический центр»",
-      "workTypes": ["Routine repair"],
+      "workTypes": [
+        "Routine repair"
+      ],
       "description": "Routine repair of the 2nd floor corridor and management offices (general contractor)"
     },
     "25": {
       "client": "КГУ «Петропавловский детский психоневрологический дом-интернат»",
-      "workTypes": ["Major repair"],
+      "workTypes": [
+        "Major repair"
+      ],
       "description": "Major repair of the medical block and corridor (general contractor)"
     },
     "26": {
       "client": "ОО «Казахское общество слепых»",
-      "workTypes": ["Major repair"],
+      "workTypes": [
+        "Major repair"
+      ],
       "description": "Major repair of the branch located in the building of the Employment and Social Programs Department of NKO (general contractor)"
     },
     "27": {
       "client": "ГУ «Департамент координации занятости и социальных программ СКО»",
-      "workTypes": ["Major repair"],
+      "workTypes": [
+        "Major repair"
+      ],
       "description": "Major repair of the building entrance group (general contractor)"
     },
     "28": {
       "client": "КСК «Мира 240, 238»",
-      "workTypes": ["Major repair"],
+      "workTypes": [
+        "Major repair"
+      ],
       "description": "Major repair of the residential building at 183 Mira St (general contractor)"
     },
     "29": {
       "client": "КГП на ПХВ «Областной кожно-венерологический диспансер» акимата СКО МЗ РК",
-      "workTypes": ["Routine repair"],
+      "workTypes": [
+        "Routine repair"
+      ],
       "description": "Routine repair of the porch and blind area of the polyclinic building, facade repair (general contractor)"
     },
     "30": {
       "client": "КГУ «Смирновский дом-интернат для престарелых и инвалидов общего типа»",
-      "workTypes": ["Major repair"],
+      "workTypes": [
+        "Major repair"
+      ],
       "description": "Major repair of exterior walls and built-in structures around the perimeter of the building (general contractor)"
     },
     "31": {
       "client": "КГУ «Петропавловский детский психоневрологический дом-интернат»",
-      "workTypes": ["Major repair"],
+      "workTypes": [
+        "Major repair"
+      ],
       "description": "Major repair of stair flights in the PDPNDI building (general contractor)"
     },
     "32": {
       "client": "АО «Петропавловский протезно-ортопедический центр»",
-      "workTypes": ["Major repair"],
+      "workTypes": [
+        "Major repair"
+      ],
       "description": "Major repair of the shoe shop of the production building of PPOC branch (general contractor)"
     },
     "33": {
       "client": "ГУ «Департамент статистики СКО»",
-      "workTypes": ["Roof reconstruction"],
+      "workTypes": [
+        "Roof reconstruction"
+      ],
       "description": "Reconstruction of the roof of the administrative building (general contractor)"
     },
     "34": {
       "client": "ГУ «Управление здравоохранения СКО»",
-      "workTypes": ["Facade major repair", "Window replacement"],
+      "workTypes": [
+        "Facade major repair",
+        "Window replacement"
+      ],
       "description": "Major repair of the facade and window replacement (general contractor)"
     },
     "35": {
       "client": "КГУ «Дом ребёнка»",
-      "workTypes": ["Major roof repair"],
+      "workTypes": [
+        "Major roof repair"
+      ],
       "description": "Major repair of the building roof (general contractor)"
     },
     "36": {
       "client": "ТОО «Нефрос-СК»",
-      "workTypes": ["Premises repair", "Annex construction"],
+      "workTypes": [
+        "Premises repair",
+        "Annex construction"
+      ],
       "description": "Repair and construction of an annex for the hemodialysis department (general contractor)"
     },
     "37": {
       "client": "ГУ «Кызылжарский районный отдел образования»",
-      "workTypes": ["Major repair"],
+      "workTypes": [
+        "Major repair"
+      ],
       "description": "Major repair of the building of Beskol Secondary School No. 2 (general contractor)"
     },
     "38": {
       "client": "КГП на ПХВ «Детская областная больница»",
-      "workTypes": ["Routine repair"],
+      "workTypes": [
+        "Routine repair"
+      ],
       "description": "Routine repair of the clinic corridor (general contractor)"
     },
     "39": {
       "client": "Крестова Галина Алексеевна",
-      "workTypes": ["Shop reconstruction"],
+      "workTypes": [
+        "Shop reconstruction"
+      ],
       "description": "Reconstruction of the shop at 228 Vorovskogo St (general contractor)"
     },
     "40": {
       "client": "КСК «Интер-27»",
-      "workTypes": ["Major repair"],
+      "workTypes": [
+        "Major repair"
+      ],
       "description": "Major repair of the residential building at 27 Internatsionalnaya St (general contractor)"
     },
     "41": {
       "client": "ПК «Гоголя, 19»",
-      "workTypes": ["Major repair"],
+      "workTypes": [
+        "Major repair"
+      ],
       "description": "Major repair of the residential building at 19 Gogol St (general contractor)"
     },
     "42": {
       "client": "ТОО «Рока»",
-      "workTypes": ["Construction of LPG filling station"],
+      "workTypes": [
+        "Construction of LPG filling station"
+      ],
       "description": "Construction of a modular-type LPG filling station with a cylinder filling post (general contractor)"
     },
     "43": {
       "client": "АО «Казахтелеком»",
-      "workTypes": ["Routine repair"],
+      "workTypes": [
+        "Routine repair"
+      ],
       "description": "Routine repair of production premises in Smirnovo village (general contractor)"
     },
     "44": {
       "client": "КСК «Планета»",
-      "workTypes": ["Major repair"],
+      "workTypes": [
+        "Major repair"
+      ],
       "description": "Major repair of the residential building at 25 Abay St (general contractor)"
     },
     "45": {
       "client": "Отдел строительства Коргалжынского района",
-      "workTypes": ["Housing construction"],
+      "workTypes": [
+        "Housing construction"
+      ],
       "description": "Construction of a 2-apartment house in Korgalzhyn district (general contractor)"
     },
     "46": {
       "client": "ГУ «Областная ДЮСШ им. Кажымукана»",
-      "workTypes": ["Major repair of sports facilities"],
+      "workTypes": [
+        "Major repair of sports facilities"
+      ],
       "description": "Major repair of a sports playground (general contractor)"
     },
     "47": {
       "client": "ТОО «Батыс су арнасы»",
-      "workTypes": ["AMR implementation"],
+      "workTypes": [
+        "AMR implementation"
+      ],
       "description": "Implementation of an automated electricity metering system (general contractor)"
     },
     "48": {
       "client": "Отдел строительства Атбасарского района",
-      "workTypes": ["Street lighting construction"],
+      "workTypes": [
+        "Street lighting construction"
+      ],
       "description": "Construction of a street lighting system in Atbasar district (general contractor)"
     },
     "49": {
       "client": "АО НК «ҚазАвтоЖол»",
-      "workTypes": ["Construction", "Traffic light maintenance"],
+      "workTypes": [
+        "Construction",
+        "Traffic light maintenance"
+      ],
       "description": "Installation and maintenance of traffic light facilities (general contractor)"
     },
     "50": {
       "client": "Управление строительства Карагандинской области",
-      "workTypes": ["Garage construction"],
+      "workTypes": [
+        "Garage construction"
+      ],
       "description": "Construction of a garage building for the Center for AIDS in Nur-Sultan (general contractor)"
     },
     "51": {
       "client": "АО «Транстелеком»",
-      "workTypes": ["Repair of non-residential buildings"],
+      "workTypes": [
+        "Repair of non-residential buildings"
+      ],
       "description": "Repair of non-residential buildings and structures of the data center in Zhezkazgan (general contractor)"
     },
     "52": {
       "client": "BI Group",
-      "workTypes": ["Parking repair"],
+      "workTypes": [
+        "Parking repair"
+      ],
       "description": "Repair of parking in the Deluxe Town residential complex (general contractor)"
     },
     "53": {
       "client": "АО «Kazakhmys»",
-      "workTypes": ["Routine repair"],
+      "workTypes": [
+        "Routine repair"
+      ],
       "description": "Routine repair of the headframe building of the YUZHR cargo shaft in Zhezkazgan (general contractor)"
     },
     "54": {
       "client": "АО «Транстелеком»",
-      "workTypes": ["Major repair", "Communication line reconstruction"],
+      "workTypes": [
+        "Major repair",
+        "Communication line reconstruction"
+      ],
       "description": "Major repair and reconstruction of communication lines in Atyrau (general contractor)"
     },
     "55": {
       "client": "АО «Транстелеком»",
-      "workTypes": ["Design", "Construction of fiber-optic communication lines"],
+      "workTypes": [
+        "Design",
+        "Construction of fiber-optic communication lines"
+      ],
       "description": "Turnkey design and construction of FOCL (fiber-optic communication lines) (general contractor)"
     }
   }
