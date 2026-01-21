@@ -244,9 +244,6 @@ export default function Landing() {
                           </span>
                         </div>
                       </div>
-                      <button className="bg-orange-500 hover:bg-orange-600 rounded-lg p-2 ml-3 transition-colors">
-                        <ArrowUpRight className="w-4 h-4 text-slate-900" />
-                      </button>
                     </div>
                   </div>
                 </div>
