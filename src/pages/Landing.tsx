@@ -195,7 +195,7 @@ export default function Landing() {
             </h2>
             <Button
               variant="outline"
-              className="bg-slate-900 text-white hover:bg-slate-800 rounded-full px-6 py-3 h-auto font-medium flex items-center gap-2"
+              className="bg-orange-500 hover:bg-orange-600 text-white rounded-full px-6 py-3 h-auto font-medium flex items-center gap-2"
               onClick={() => navigate("/works")}
             >
               {t("landing.featured.view_all")}
@@ -244,7 +244,7 @@ export default function Landing() {
                           </span>
                         </div>
                       </div>
-                      <button className="bg-white rounded-lg p-2 ml-3 hover:bg-slate-100 transition-colors">
+                      <button className="bg-orange-500 hover:bg-orange-600 rounded-lg p-2 ml-3 transition-colors">
                         <ArrowUpRight className="w-4 h-4 text-slate-900" />
                       </button>
                     </div>
@@ -319,7 +319,7 @@ export default function Landing() {
               {/* CTA Button */}
               <div className="mt-10 reveal-on-scroll">
                 <Button
-                  className="bg-slate-900 hover:bg-slate-800 text-white rounded-full px-6 py-3 h-auto font-medium flex items-center gap-2"
+                  className="bg-orange-500 hover:bg-orange-600 text-white rounded-full px-6 py-3 h-auto font-medium flex items-center gap-2"
                   onClick={() => navigate("/services")}
                 >
                   {t("landing.features.explore_services")}
